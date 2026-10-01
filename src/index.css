@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-base-950 text-ink;
+  }
+  body {
+    @apply bg-base-950 text-ink antialiased;
+    font-feature-settings: 'ss01' on;
+  }
+  ::selection {
+    background: rgba(62, 215, 209, 0.25);
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #242D3D transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: #242D3D;
+    border-radius: 4px;
+  }
+  :focus-visible {
+    outline: 2px solid #3ED7D1;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-base-800/80 border border-line rounded-lg shadow-panel;
+  }
+  .panel-glass {
+    @apply bg-base-800/60 backdrop-blur-sm border border-line rounded-lg;
+  }
+  .mono {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
